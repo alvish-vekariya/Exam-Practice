@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center mt-4 flex-column align-items-center">
+    <h3>Your Quiz</h3>
+    <form [formGroup]="submitExamForm" *ngIf="submitExamForm">
+        <div class="card mt-2" style="width: 30rem" *ngFor="let question of questions; let i = index">
+            <div class="card-body">
+                <p>{{i+1}}. {{question?.question}}</p>
+                <div class="form-check" *ngFor="let option of question?.options">
+                    <input type="radio" name="{{question?._id}}" id="{{question?._id}}{{option}}" class="form-check-input" value="{{option}}" formControlName="{{question?._id}}">
+                    <label for="{{question?._id}}{{option}}" class="form-check-label">{{option}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 text-center">
+            <button type="button" class="btn btn-primary" (click)="submitExam()">Submit</button>
+        </div>
+    </form>
+</div>

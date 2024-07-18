@@ -1,0 +1,23 @@
+<div class="row p-2 m-0" *ngIf="stats">
+    <div class="col-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2>{{stats[0]?.count || 0}}</h2>
+                <h3>Total Exams</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2>{{stats[0]?.max_level || 1}}/5</h2>
+                <h3>Max Level</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card border-0">
+    <div class="card-body">
+        <app-datatable [rowData]="rowData" [colDefs]="colDefs"></app-datatable>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <h3>Login</h3>
+        <form [formGroup]="loginForm">
+            <div class="form-floating mt-3">
+                <input type="email" name="" id="email" formControlName="email" placeholder="email" class="form-control" [ngClass]="{'is-invalid': this.loginForm.controls.email.invalid && (this.loginForm.controls.email.touched || this.loginForm.controls.email.dirty), 'is-valid': this.loginForm.controls.email.valid}">
+                <label for="email">Email</label>
+                <span class="invalid-feedback" *ngIf="(this.loginForm.controls.email.touched || this.loginForm.controls.email.dirty)&& this.loginForm.controls.email.errors?.['required']">email is required!!</span>
+                <span class="invalid-feedback" *ngIf="this.loginForm.controls.email.dirty && this.loginForm.controls.email.errors?.['email']">email is invalid!!</span>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="password" name="" id="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{'is-invalid': this.loginForm.controls.password.invalid && (this.loginForm.controls.password.touched || this.loginForm.controls.password.dirty), 'is-valid': this.loginForm.controls.password.valid}">
+                <label for="password">Password</label>
+                <span class="invalid-feedback" *ngIf="(this.loginForm.controls.password.touched || this.loginForm.controls.password.dirty) && this.loginForm.controls.password.errors?.['required']">password is required!!</span>
+            </div>
+            <div class="mt-3">
+                <span>Don't have an account? <a routerLink="signup">signup</a></span>
+            </div>
+            <div class="mt-3">
+                <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

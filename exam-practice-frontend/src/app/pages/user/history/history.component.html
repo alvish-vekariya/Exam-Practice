@@ -1,0 +1,24 @@
+<div class="row m-0 mt-4" *ngIf="stats">
+    <div class="col-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2>{{stats[0].count || 0}}</h2>
+                <h3>Total Exams</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2>{{stats[0].count || 0}}/5</h2>
+                <h3>Max Difficulty</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card border-0">
+    <div class="card-body">
+        <h3>History</h3>
+        <app-datatable [rowData]="rowData" [colDefs]="colDefs"></app-datatable>
+    </div>
+</div>

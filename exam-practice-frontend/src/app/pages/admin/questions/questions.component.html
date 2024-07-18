@@ -1,0 +1,62 @@
+<div class="row mt-4 m-0">
+    <div class="col text-center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" #modal>Add Question</button>
+    </div>
+</div>
+
+<div class="card border-0 p-3">
+    <div class="card-body">
+        <h3 class="mb-3">All Questions</h3>
+        <app-datatable [rowData]="rowData" [colDefs]="colDef"></app-datatable>
+    </div>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="!updateState">Add Question</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="updateState">Update Question</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeButton (click)="resetThings()"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="questionForm">
+            <div class="form-floating mt-3">
+                <input type="text" name="" id="question" formControlName="question" class="form-control" placeholder="Question">
+                <label for="question">Question</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="text" name="" id="option1" formControlName="option1" class="form-control" placeholder="Option1">
+                <label for="option1">Option 1</label>
+            </div>
+            <div class="form-floating mt-1">
+                <input type="text" name="" id="option2" formControlName="option2" class="form-control" placeholder="Option2">
+                <label for="option2">Option 2</label>
+            </div>
+            <div class="form-floating mt-1">
+                <input type="text" name="" id="option3" formControlName="option3" class="form-control" placeholder="Option3">
+                <label for="option3">Option 3</label>
+            </div>
+            <div class="form-floating mt-1">
+                <input type="text" name="" id="option4" formControlName="option4" class="form-control" placeholder="Option4">
+                <label for="option4">Option 4</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="text" name="" id="answer" formControlName="answer" class="form-control" placeholder="answer">
+                <label for="answer">Answer</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="number" min="1" max="5" name="" id="difficulty" formControlName="difficulty" class="form-control" placeholder="difficulty">
+                <label for="difficulty">Difficulty</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #closeButton (click)="resetThings()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addQuestion()" [hidden]="updateState">ADD</button>
+          <button type="button" class="btn btn-warning" (click)="updateQuestion()" [hidden]="!updateState">UPDATE</button>
+        </div>
+      </div>
+    </div>
+  </div>
